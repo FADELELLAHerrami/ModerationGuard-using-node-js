@@ -1,11 +1,13 @@
 const express = require('express');
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+require('dotenv').config();
+
 
 const routeModerate = require('./route/moderate')
 
 
 // connection to database using mongoose
-mongoose.connect("mongodb+srv://Fadel:Errami2001@cluster0.8gdji4y.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(()=>console.log("connection successed"))
